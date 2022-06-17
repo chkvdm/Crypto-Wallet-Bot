@@ -1,4 +1,4 @@
 # Hello!
 
 
-**I'm study python**
+**I study python**
