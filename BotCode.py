@@ -1,55 +1,56 @@
 import random
+
 btc_cost = random.uniform(5000, 60000)
-print ("BTC cost: {}".format(str(round(btc_cost, 8))))
+eth_cost = random.uniform(800, 5000)
+bnb_cost = random.uniform(100, 1000)
+sol_cost = random.uniform(10, 600)
+doge_cost = random.uniform(0.03, 2)
+
+currency_prices = {
+  'USD' : 1,
+  'BTC' : btc_cost, 
+  'ETH' : eth_cost, 
+  'BNB' : bnb_cost, 
+  'SOL' : sol_cost, 
+  'DOGE' : doge_cost
+  }
+
+for key, val in currency_prices.items():
+  print (key, ': {}$'.format(str(round(val, 8))))
 
 class user(object):
   def __init__(self, name):
     self.name = name
-    self.balance = {"USD" : 10000, "BTC": 0}
+    self.balance = {
+      'USD' : 10000, 
+      'BTC' : 0, 
+      'ETH' : 0, 
+      'BNB' : 0, 
+      'SOL' : 0, 
+      'DOGE' : 0
+      }
   
   def __repr__(self):
-    return ("welcome {}, you balance: {}").format(self.name, self.balance)
+    return (('Welcome {}!\nYou balance: {},').format(self.name, self.balance))
   
   def get_balance(self):
     return self.balance
-  
-  def buy(self):
-    start = True
-    while start:
-      amount_btc = (float(input("Enter BTC amount you want buy: ")))
-      if (amount_btc * btc_cost) > self.balance["USD"]:
-        try_again = (input("There are not enough funds in your account. Enter Y fo continue, enter N for exit: "))
-        try_again = try_again.upper()
-        if try_again == "Y":
-          continue
-        else:
-          break
-      else:
-        self.balance["BTC"] += amount_btc
-        self.balance["BTC"] = round(self.balance["BTC"], 8)
-        self.balance["USD"] -= btc_cost * amount_btc
-        self.balance["USD"] = round(self.balance["USD"], 8)
-        return self.balance
-  
-  def sell(self):
-    start = True
-    while start:
-      amount_btc = (float(input("Enter BTC amount you want sell: ")))
-      if (amount_btc) > self.balance["BTC"]:
-        try_again = (input("There are not enough funds in your account. Enter Y fo continue, enter N for exit: "))
-        try_again = try_again.upper()
-        if try_again == "Y":
-          continue
-        else:
-          break
-      else:
-        self.balance["BTC"] -= amount_btc
-        self.balance["BTC"] = round(self.balance["BTC"], 8)
-        self.balance["USD"] += btc_cost * amount_btc
-        self.balance["USD"] = round(self.balance["USD"], 8)
-        return self.balance
-  
-vadim = user("Vadim")
-print (vadim)
-vadim.buy()
-print (vadim.get_balance())
+
+  def e_rate(self, currency_sell, currency_buy):
+    return round(float(currency_prices[currency_sell] / currency_prices[currency_buy]), 8)
+
+  def swap(self, currency_sell, currency_buy, amount_currency_sell):
+    if amount_currency_sell > self.balance[currency_sell]:
+      raise Exception ("You don't have enough funds")
+    self.balance[currency_buy] += self.balance[currency_sell] * user.e_rate(self, currency_sell, currency_buy)
+    self.balance[currency_buy] = round((self.balance[currency_buy]), 8)
+    self.balance[currency_sell] -= amount_currency_sell
+    self.balance[currency_sell] = round((self.balance[currency_sell]), 8)
+
+  def buy(self, currency_sell, currency_buy, amount_currency_sell):
+    user.swap(self, currency_sell, currency_buy, amount_currency_sell)
+
+  def sell(self, currency_sell, currency_buy, amount_currency_sell):
+    user.swap(self, currency_sell, currency_buy, amount_currency_sell)
+
+vadim = user('Vadim')
