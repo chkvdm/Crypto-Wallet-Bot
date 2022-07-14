@@ -34,11 +34,10 @@ class user(object):
     return (('Welcome {}!\nYou balance: {},').format(self.name, self.balance))
   
   def get_balance(self):
-    print ('You balance {}'.format(self.balance))
+    return self.balance
 
   def e_rate(self, currency_sell, currency_buy):
-    exch = round(float(currency_prices[currency_sell] / currency_prices[currency_buy]), 8)
-    return exch
+    return round(float(currency_prices[currency_sell] / currency_prices[currency_buy]), 8)
 
   def swap(self, currency_sell, currency_buy, amount_currency_sell):
     if amount_currency_sell > self.balance[currency_sell]:
@@ -47,7 +46,6 @@ class user(object):
     self.balance[currency_buy] = round((self.balance[currency_buy]), 8)
     self.balance[currency_sell] -= amount_currency_sell
     self.balance[currency_sell] = round((self.balance[currency_sell]), 8)
-    user.get_balance(self)
 
   def buy(self, currency_sell, currency_buy, amount_currency_sell):
     user.swap(self, currency_sell, currency_buy, amount_currency_sell)
