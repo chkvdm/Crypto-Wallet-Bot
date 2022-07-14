@@ -18,8 +18,6 @@ currency_prices = {
 for key, val in currency_prices.items():
   print (key, ': {}$'.format(str(round(val, 8))))
 
-
-
 class user(object):
   def __init__(self, name):
     self.name = name
@@ -57,7 +55,4 @@ class user(object):
   def sell(self, currency_sell, currency_buy, amount_currency_sell):
     user.swap(self, currency_sell, currency_buy, amount_currency_sell)
 
-
 vadim = user('Vadim')
-vadim.buy('USD', 'ETH', 2000)
-vadim.sell('ETH', 'USD', 1)
