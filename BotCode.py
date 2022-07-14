@@ -7,11 +7,12 @@ sol_cost = random.uniform(10, 600)
 doge_cost = random.uniform(0.03, 2)
 
 currency_prices = {
+  'USD' : 1,
   'BTC' : btc_cost, 
   'ETH' : eth_cost, 
   'BNB' : bnb_cost, 
-  'SOL': sol_cost, 
-  'DOGE': doge_cost
+  'SOL' : sol_cost, 
+  'DOGE' : doge_cost
   }
 
 for key, val in currency_prices.items():
@@ -22,79 +23,41 @@ for key, val in currency_prices.items():
 class user(object):
   def __init__(self, name):
     self.name = name
-    self.balance = {"USD" : 10000}
+    self.balance = {
+      'USD' : 10000, 
+      'BTC' : 0, 
+      'ETH' : 0, 
+      'BNB' : 0, 
+      'SOL' : 0, 
+      'DOGE' : 0
+      }
   
   def __repr__(self):
     return (('Welcome {}!\nYou balance: {},').format(self.name, self.balance))
   
   def get_balance(self):
-    return ('You balance {}'.format(self.balance))
-  
-  def buy(self):
-    start = True
-    while start:
-      try:
-        currency_type = (input("What currency do you want to buy: "))
-        currency_type = currency_type.upper()
-        if currency_type in currency_prices.keys():
-          key = currency_type
-          val = currency_prices[key]
-          amount_currency = (float(input("Amount of currency: ")))
-          if (amount_currency * val) <= self.balance['USD']:
-            self.balance[key] = self.balance.get(key, 0) + amount_currency
-            self.balance[key] = round(self.balance[key], 8)
-            self.balance['USD'] -= amount_currency * val
-            self.balance["USD"] = round(self.balance["USD"], 8)
-          elif (amount_currency * val) > self.balance['USD']:
-            try_again = (input("You don't have enough funds. Enter Y fo continue or press return for exit: "))
-            try_again = try_again.upper()
-            if try_again == "Y":
-              continue
-            else:
-              return self.balance
-          cnt = (input("Operation successful! You balance {}. Do you want to continue shopping? Enter Y fo continue or press return for exit: ".format(self.balance)))
-          cnt = cnt.upper()
-          if cnt == 'Y':
-            continue
-          else:
-            return self.balance
-        else:
-          print ('Error! Select a currency from the list above.')
-      except Exception:
-        print ('Incorrect input. Please, enter a valid value.')
-  
-  def sell(self):
-    start = True
-    while start:
-      try:
-        currency_type = (input("What currency do you want to sell: "))
-        currency_type = currency_type.upper()
-        if currency_type in self.balance.keys():
-          key = currency_type
-          val = currency_prices[key]
-          amount_currency = (float(input("Amount of currency: ")))
-          if (amount_currency) <= self.balance[key]:
-            self.balance[key] -= amount_currency
-            self.balance[key] = round(self.balance[key], 8)
-            self.balance['USD'] += amount_currency * val
-            self.balance["USD"] = round(self.balance["USD"], 8)
-          elif (amount_currency) > self.balance[key]:
-            try_again = (input("You don't have enough funds. Enter Y fo continue or press return for exit: "))
-            try_again = try_again.upper()
-            if try_again == "Y":
-              continue
-            else:
-              return self.balance
-          cnt = (input("Operation successful! You balance {}. Do you want to continue selling? Enter Y fo continue or press return for exit: ".format(self.balance)))
-          cnt = cnt.upper()
-          if cnt == 'Y':
-            continue
-          else:
-            return self.balance
-        else:
-          print ("You havn't {}. Please choice currency from you balance.".format(currency_type))
-      except Exception:
-        print ('Incorrect input. Please, enter a valid value.')
-  
+    print ('You balance {}'.format(self.balance))
 
-  
+  def e_rate(self, currency_sell, currency_buy):
+    exch = round(float(currency_prices[currency_sell] / currency_prices[currency_buy]), 8)
+    return exch
+
+  def swap(self, currency_sell, currency_buy, amount_currency_sell):
+    if amount_currency_sell > self.balance[currency_sell]:
+      raise Exception ("You don't have enough funds")
+    self.balance[currency_buy] += self.balance[currency_sell] * user.e_rate(self, currency_sell, currency_buy)
+    self.balance[currency_buy] = round((self.balance[currency_buy]), 8)
+    self.balance[currency_sell] -= amount_currency_sell
+    self.balance[currency_sell] = round((self.balance[currency_sell]), 8)
+    user.get_balance(self)
+
+  def buy(self, currency_sell, currency_buy, amount_currency_sell):
+    user.swap(self, currency_sell, currency_buy, amount_currency_sell)
+
+  def sell(self, currency_sell, currency_buy, amount_currency_sell):
+    user.swap(self, currency_sell, currency_buy, amount_currency_sell)
+
+
+vadim = user('Vadim')
+vadim.buy('USD', 'ETH', 2000)
+vadim.sell('ETH', 'USD', 1)
