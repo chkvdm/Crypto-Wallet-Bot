@@ -1,22 +1,29 @@
-import random
+import requests
 
-btc_cost = random.uniform(5000, 60000)
-eth_cost = random.uniform(800, 5000)
-bnb_cost = random.uniform(100, 1000)
-sol_cost = random.uniform(10, 600)
-doge_cost = random.uniform(0.03, 2)
+def currency_price(currency):
+    service_url = 'https://api.coincap.io/v2/assets/'
+    url = service_url + currency
+    response = requests.get(url)
+    js = response.json()
+    return (js['data']['priceUsd'])
+
+btc_cost = currency_price('bitcoin')
+eth_cost = currency_price('ethereum')
+bnb_cost = currency_price('binance-coin')
+sol_cost = currency_price('solana')
+doge_cost = currency_price('dogecoin')
 
 currency_prices = {
   'USD' : 1,
-  'BTC' : btc_cost, 
-  'ETH' : eth_cost, 
-  'BNB' : bnb_cost, 
-  'SOL' : sol_cost, 
-  'DOGE' : doge_cost
+  'BTC' : float(btc_cost), 
+  'ETH' : float(eth_cost), 
+  'BNB' : float(bnb_cost), 
+  'SOL' : float(sol_cost), 
+  'DOGE' : float(doge_cost)
   }
 
 for key, val in currency_prices.items():
-  print (key, ': {}$'.format(str(round(val, 8))))
+  print (key, (': {}$').format(val))
 
 class user(object):
   def __init__(self, name):
@@ -36,18 +43,19 @@ class user(object):
   def get_balance(self):
     return self.balance
 
-  def e_rate(self, currency_sell, currency_buy):
-    return round(float(currency_prices[currency_sell] / currency_prices[currency_buy]), 8)
+  def exchange_rate(self, currency_sell, currency_buy):
+    return (float(currency_prices[currency_sell] / currency_prices[currency_buy]))
 
   def swap(self, currency_sell, currency_buy, amount_currency_sell):
     if amount_currency_sell > self.balance[currency_sell]:
       raise Exception ("You don't have enough funds")
-    self.balance[currency_buy] += self.balance[currency_sell] * user.e_rate(self, currency_sell, currency_buy)
-    self.balance[currency_buy] = round((self.balance[currency_buy]), 8)
     self.balance[currency_sell] -= amount_currency_sell
     self.balance[currency_sell] = round((self.balance[currency_sell]), 8)
+    self.balance[currency_buy] += amount_currency_sell * user.exchange_rate(self, currency_sell, currency_buy)
+    self.balance[currency_buy] = round((self.balance[currency_buy]), 8)
 
-  def buy(self, currency_sell, currency_buy, amount_currency_sell):
+  def buy(self, currency_buy, currency_sell, amount_currency_buy):
+    amount_currency_sell = amount_currency_buy / user.exchange_rate(self, currency_sell, currency_buy)
     user.swap(self, currency_sell, currency_buy, amount_currency_sell)
 
   def sell(self, currency_sell, currency_buy, amount_currency_sell):
