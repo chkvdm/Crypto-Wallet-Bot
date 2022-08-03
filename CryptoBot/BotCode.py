@@ -29,7 +29,7 @@ class user(object):
   def __init__(self, name):
     self.name = name
     self.balance = {
-      'USD' : 10000, 
+      'USD' : 10000.0, 
       'BTC' : 0, 
       'ETH' : 0, 
       'BNB' : 0, 
