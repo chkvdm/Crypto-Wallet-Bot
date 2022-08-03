@@ -1,7 +1,7 @@
 import unittest
 import sys
-from App_Code.BotCode import user, currency_price
 sys.path.append('/Users/vadim/Documents/BotProject/App_Code')
+from App_Code.BotCode import user, currency_price
 from unittest.mock import patch
 
 class BotTest(unittest.TestCase):
