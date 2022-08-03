@@ -1,6 +1,4 @@
 import unittest
-import sys
-sys.path.append('/Users/vadim/Documents/BotProject/App_Code')
 from App_Code.BotCode import user, currency_price
 from unittest.mock import patch
 
@@ -19,6 +17,7 @@ class BotTest(unittest.TestCase):
         vadim = user("Vadim")
         vadim.buy('BTC', 'USD', 0.1)
         self.assertEqual(vadim.get_balance()['BTC'], 0.1)
+        self.assertLess(vadim.get_balance()['USD'], 10000)
 
 if __name__ == "__main__":
     unittest.main()
