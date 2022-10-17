@@ -1,4 +1,3 @@
-# Hello!
+# Crypto Wallet Bot
 
-
-**I study python**
+A telegram bot that imitates a wallet on a crypto exchange.
