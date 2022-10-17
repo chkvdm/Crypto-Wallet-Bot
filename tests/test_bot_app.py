@@ -1,5 +1,5 @@
 import unittest
-from App_Code.BotCode import user, currency_price
+from project.bot_app import user, currency_price
 from unittest.mock import patch
 
 class BotTest(unittest.TestCase):
