@@ -3,7 +3,7 @@ from sqlalchemy.orm import mapper, sessionmaker
 
 
 
-# connection on CryptoBotDB
+# connection SQLalchemy on CryptoBotDB
 
 engine = create_engine('postgresql+psycopg2://postgres:@localhost/CryptoBotDB')
 meta = MetaData(engine)
@@ -42,12 +42,12 @@ class Balance():
     self.total = total
 
 class Transaction():
-  def __init__(self, profile_id, timestamp, currency_id, amount, trasaction_type_id):
+  def __init__(self, profile_id, timestamp, currency_id, amount, transaction_type_id):
     self.profile_id = profile_id
     self.timestamp = timestamp
     self.currency_id = currency_id
     self.amount = amount
-    self.transaction_type_id = trasaction_type_id
+    self.transaction_type_id = transaction_type_id
 
 
 
