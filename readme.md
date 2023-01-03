@@ -9,7 +9,7 @@
 * **[Flask](https://flask.palletsprojects.com/en/2.2.x/installation/)** - A microframework for Python based on WSGI, Werkzeug and Jinja 2.
 * **[Flask-marshmallow](https://www.sqlalchemy.org/download.html)** - Flask-Marshmallow is a thin integration layer for Flask and marshmallow that adds additional features to marshmallow.
 * **[SQLAlchemy](https://www.sqlalchemy.org/download.html)** - Python SQL toolkit and Object Relational Mapper.  
-* Other minor dependences which are in the pipfile.
+* Other minor requirements which are in the pipfile.
 
 ## Local development
 
@@ -31,6 +31,10 @@ $ ###################
 ```
 
 ## Testing
+
+The project includes a complete postman collection of HTTP requests to all API endpoints.
+
+<img src="path/to/postman-screenshot.png" width="500">
 
 ## Clients
 
