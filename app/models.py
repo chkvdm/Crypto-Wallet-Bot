@@ -1,13 +1,13 @@
+from app import app
 from sqlalchemy import create_engine, Table, MetaData
 from sqlalchemy.orm import mapper, sessionmaker
-
+from flask_marshmallow import Marshmallow
 
 
 # connection SQLalchemy on CryptoBotDB
 
-engine = create_engine('postgresql+psycopg2://postgres:@localhost/CryptoBotDB')
+engine = create_engine('postgresql+psycopg2://postgres:example@127.0.0.1:5433/CryptoBotDB')
 meta = MetaData(engine)
-
 
 
 # import table from CryptoBotDB
@@ -17,7 +17,6 @@ currency = Table('currency', meta, autoload=True)
 transaction_type = Table('transaction_type', meta, autoload=True) 
 balance = Table('balance', meta, autoload=True) 
 transaction = Table('transaction', meta, autoload=True) 
-
 
 
 # relating tables to classes
@@ -50,7 +49,6 @@ class Transaction():
     self.transaction_type_id = transaction_type_id
 
 
-
 mapper(Profile, profile)
 mapper(Currency, currency)
 mapper(Transaction_type, transaction_type)
@@ -62,3 +60,32 @@ mapper(Transaction, transaction)
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+
+ma = Marshmallow(app)
+
+
+# create Marshmallow model from data base table
+
+class ProfileSchema(ma.Schema):
+  class Meta:
+    fields = ('name', 'tg_user_id')
+
+profile_schema = ProfileSchema()
+profiles_schema = ProfileSchema(many=True)
+
+
+class BalanceSchema(ma.Schema):
+  class Meta:
+    fields = ('profile_id', 'currency_id', 'total')
+
+balance_schema = BalanceSchema()
+balances_schema = BalanceSchema(many=True)
+
+
+class TransactionSchema(ma.Schema):
+  class Meta:
+    fields = ('profile_id', 'timestamp', 'currency_id', 'amount', 'transaction_type_id')
+
+transaction_schema = TransactionSchema()
+transactions_schema = TransactionSchema(many=True)
