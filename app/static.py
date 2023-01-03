@@ -86,7 +86,7 @@ class UserProfile():
       new_profile = Profile(name, tg_user_id)
       session.add(new_profile)
       session.commit()
-      # welcome benefit 10000 USDT
+      # accrual welcome benefit 10000 USDT
       Wallet().hello_user_balance(tg_user_id)
       profile = profile_schema.dump(session.query(Profile).filter_by(tg_user_id = str(tg_user_id)).one())
     return profile
