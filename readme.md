@@ -9,11 +9,11 @@
 * **[Flask](https://flask.palletsprojects.com/en/2.2.x/installation/)** - A microframework for Python based on WSGI, Werkzeug and Jinja 2.
 * **[Flask-marshmallow](https://www.sqlalchemy.org/download.html)** - Flask-Marshmallow is a thin integration layer for Flask and marshmallow that adds additional features to marshmallow.
 * **[SQLAlchemy](https://www.sqlalchemy.org/download.html)** - Python SQL toolkit and Object Relational Mapper.  
-Other minor dependences which are in the pipfile.
+* Other minor dependences which are in the pipfile.
 
 ## Local development
 
-The project comes with a basic configuration for [Docker](https://www.docker.com/)
+The project comes with a basic configuration for [Docker](https://www.docker.com/).
 
 The steps to start the template using Docker:
 
@@ -36,7 +36,7 @@ $ ###################
 
 ## Authors
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr0qq7pHt2RAjrMGGKJ_-460bOO8Mpb038TQ&usqp=CAU" height="18"/>  [Vadim Chaiko](https://www.linkedin.com/in/vadim-chaiko-712279127/)
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr0qq7pHt2RAjrMGGKJ_-460bOO8Mpb038TQ&usqp=CAU" height="16"/>  [Vadim Chaiko](https://www.linkedin.com/in/vadim-chaiko-712279127/)
 
 ## License
 
