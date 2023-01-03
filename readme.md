@@ -1,6 +1,6 @@
 # Crypto Sandbox API
 
-A telegram bot that imitates a wallet on a crypto exchange.
+&&&&A telegram bot that imitates a wallet on a crypto exchange.&&&&
 
 ## Technologies used
 
@@ -35,7 +35,7 @@ $ ###################
 
 ## Authors
 
-<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/> [Vadim Chaiko](https://www.linkedin.com/in/vadim-chaiko-712279127/)
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr0qq7pHt2RAjrMGGKJ_-460bOO8Mpb038TQ&usqp=CAU" height="32"/> [Vadim Chaiko](https://www.linkedin.com/in/vadim-chaiko-712279127/)
 
 ## License
 
