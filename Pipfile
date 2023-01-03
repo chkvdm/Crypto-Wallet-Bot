@@ -5,8 +5,11 @@ name = "pypi"
 
 [packages]
 SQLAlchemy = "==1.4.41"
-psycopg2 = "*"
 requests = "*"
+Flask =  "==2.2.2"
+flask-marshmallow = "==0.14.0"
+jsonschema = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

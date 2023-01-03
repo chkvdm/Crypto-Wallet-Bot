@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "92f42a0e-ca32-4e62-a394-56de99ac88b5",
+		"name": "Crypto Sandbox API test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Create a profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"nina\",\n    \"tg_user_id\": 222600364\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/v1/profile",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a profile infornation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/v1/profile/{{telegram-id}}",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"{{telegram-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an profile name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"nina91\",\n    \"tg_user_id\": 222600364\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/v1/profile/{{telegram-id}}",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"{{telegram-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/v1/profile/{{telegram-id}}",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"{{telegram-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Currency",
+			"item": [
+				{
+					"name": "Retrieve currency price",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/v1/currency/price/{{currency-ticker}}",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"currency",
+								"price",
+								"{{currency-ticker}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "Retrieve an user balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/v1/profile/{{telegram-id}}/balance",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"{{telegram-id}}",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an user transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/v1/profile/{{telegram-id}}/transactions",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"{{telegram-id}}",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buy a currency",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticker_buy\": \"ETH\",\n    \"ticker_sell\": \"USDT\",\n    \"amount_currency_buy\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/v1/{{telegram-id}}/buy",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"{{telegram-id}}",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sell a currency",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticker_sell\": \"ETH\",\n    \"ticker_buy\": \"USDT\",\n    \"amount_currency_sell\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/v1/{{telegram-id}}/sell",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"v1",
+								"{{telegram-id}}",
+								"sell"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
