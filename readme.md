@@ -1,6 +1,7 @@
 # Crypto Sandbox API
 
-&&&&A telegram bot that imitates a wallet on a crypto exchange.  &&&&
+Backend code for telegram bot 'crypto-sandbox-api'. Allows the user to simulate a crypto wallet with a start balance.  
+Based on real exchange rates, buy and sell cryptocurrencies. View your activity data and monitor your balance.
 
 ## Technologies used
 
