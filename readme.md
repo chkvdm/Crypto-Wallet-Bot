@@ -45,4 +45,4 @@ The project includes a complete postman collection of HTTP requests to all API e
 
 ## License
 
-[MIT licence](https://opensource.org/licenses/MIT)
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](https://opensource.org/licenses/MIT)
