@@ -14,36 +14,37 @@ Based on real exchange rates, buy and sell cryptocurrencies. View your activity 
 
 ## Local development
 
-The project comes with a basic configuration for build from sources or [Docker](https://www.docker.com/).
+The project comes with a basic configuration for build from sources or [Docker](https://www.docker.com/).  
+for start the app from sources you need [pipenv](https://pipenv.pypa.io/en/latest/)
 
 Build from sources:
-
 ```bash
-$ git clone https://github.com/chkvdm/crypto-sandbox-api.git
-$ cd crypto-sandbox-api
-$
-$ # activate the Pipenv shell
-$ pipenv shell
-$
-$ # Install requirements
-$ pipenv install
-$
-$ # start postgres and create database with docker-compose.yaml
-$ docker-compose up
-$
-$ # run the flask run.py
-$ flask --app run run
+# get the code
+git clone https://github.com/chkvdm/crypto-sandbox-api.git
+cd crypto-sandbox-api
+
+# activate the Pipenv shell
+pipenv shell
+
+# install requirements
+pipenv install
+
+# start postgres and create database with docker-compose.yaml
+docker-compose up
+
+# run the flask run.py
+flask --app run run
 ```
 
 Start the app using Docker:
 
 ```bash
-$ # Get the code
-$ git clone https://github.com/chkvdm/crypto-sandbox-api.git
-$ cd crypto-sandbox-api
-$
-$ # Start the app in Docker
-$ ###################
+# get the code
+git clone https://github.com/chkvdm/crypto-sandbox-api.git
+cd crypto-sandbox-api
+
+# start the app in Docker
+in process
 ```
 
 ## Testing
