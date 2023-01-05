@@ -1,5 +1,7 @@
 from flask import request, jsonify
+
 from app import app
+
 from .validation import *
 from .user_profile import *
 from .currency_info import *
@@ -63,7 +65,7 @@ def get_user_transaction(tg_user_id):
 def buy_currency(tg_user_id):
   Validation().trading_schema_check(request)
   Wallet().buy(tg_user_id, request.json)
-  return jsonify("Transaction successfully")
+  return jsonify({"message": "Transaction successful"})
 
 # sell currency
 
@@ -71,4 +73,4 @@ def buy_currency(tg_user_id):
 def sell_currency(tg_user_id):
   Validation().trading_schema_check(request)
   Wallet().sell(tg_user_id, request.json)
-  return jsonify('Transaction successfully')
+  return jsonify({"message": "Transaction successful"})

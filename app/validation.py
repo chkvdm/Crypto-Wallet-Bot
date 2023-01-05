@@ -1,6 +1,8 @@
 import re
+
 from flask import abort
 from jsonschema import validate
+
 from .models import session
 from .models import Profile
 from .errors import *

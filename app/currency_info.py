@@ -1,4 +1,5 @@
 from flask import abort
+
 from .price_api import currency_prices
 from .errors import *
 

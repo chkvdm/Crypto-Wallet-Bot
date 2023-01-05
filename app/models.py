@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, Table, MetaData
 from sqlalchemy.orm import mapper, sessionmaker
 from flask_marshmallow import Marshmallow
+
 from app import app
 
 

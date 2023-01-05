@@ -1,4 +1,5 @@
 from flask import abort
+
 from .models import session, profile_schema
 from .models import Profile
 from .validation import Validation
