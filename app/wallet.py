@@ -1,8 +1,10 @@
 from decimal import Decimal
+from datetime import datetime, timezone
+
 from flask import abort
+
 from .models import session
 from .price_api import currency_prices
-from datetime import datetime, timezone
 from .models import Profile, Currency, Transaction_type, Balance, Transaction
 from .currency_info import CurrencyInfo
 from .errors import *
@@ -90,6 +92,9 @@ class Wallet():
       (session.query(Transaction_type).filter_by(name = 'buy').one()).id)
     session.add(buy_data_log)
     session.add(sell_on_balance, buy_on_balance)
+    if sell_on_balance.total < 0.00000001:
+      session.delete(sell_on_balance)
+    #   session.commit()
     session.commit()
 
   def currency_sell_control(currency_sell_id, ticker_buy, ticker_sell, amount_currency_buy, profile_id):
