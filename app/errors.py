@@ -1,5 +1,5 @@
-from app import app
 from flask import jsonify
+from app import app
 
 
 # registering an error handlers

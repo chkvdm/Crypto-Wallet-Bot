@@ -1,6 +1,9 @@
-from app import app
-from .static import Validation, UserProfile, CurrencyInfo, Wallet
 from flask import request, jsonify
+from app import app
+from .validation import *
+from .user_profile import *
+from .currency_info import *
+from .wallet import *
 
 
 # create profile
