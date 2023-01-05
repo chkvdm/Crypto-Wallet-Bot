@@ -33,11 +33,9 @@ $ ###################
 
 ## Testing
 
-The project includes a complete postman collection of HTTP requests to all API endpoints.
+The project includes a complete postman collection of HTTP requests to all API endpoints. You can imported collection [from](./postman).  
 
 <img width="900" alt="postman-screenshoot" src="https://user-images.githubusercontent.com/107465582/210433192-823e0391-8956-4af1-8b70-8d3b53b302a5.png">
-
-## Clients
 
 ## Authors
 
