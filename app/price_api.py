@@ -1,7 +1,7 @@
 import requests
 
 
-# API request for currency price
+# API request for currency price information
 
 def currency_price(currency):
     service_url = 'https://api.coinpaprika.com/v1/tickers/'
@@ -11,10 +11,10 @@ def currency_price(currency):
     return (js["quotes"]["USD"]["price"])
 
 currency_prices = {
-  'USDT' : 1,
-  'BTC' : float(currency_price('btc-bitcoin')), 
-  'ETH' : float(currency_price('eth-ethereum')), 
-  'ANT' : float(currency_price('ant-aragon')), 
-  'SOL' : float(currency_price('sol-solana')), 
-  'DOGE' : float(currency_price('doge-dogecoin'))
-  }
+    'USDT' : 1,
+    'BTC' : float(currency_price('btc-bitcoin')), 
+    'ETH' : float(currency_price('eth-ethereum')), 
+    'ANT' : float(currency_price('ant-aragon')), 
+    'SOL' : float(currency_price('sol-solana')), 
+    'DOGE' : float(currency_price('doge-dogecoin'))
+    }

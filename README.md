@@ -14,44 +14,26 @@ Based on real exchange rates, buy and sell cryptocurrencies. View your activity 
 
 ## Local development
 
-The project comes with a basic configuration for build from sources or [Docker](https://www.docker.com/).  
-for start the app from sources you need [pipenv](https://pipenv.pypa.io/en/latest/)
+The project comes with a basic configuration for start with [Docker](https://www.docker.com/).
 
-Build from sources:
+> Get the code
+
 ```bash
-# get the code
 git clone https://github.com/chkvdm/crypto-sandbox-api.git
 cd crypto-sandbox-api
-
-# activate the Pipenv shell
-pipenv shell
-
-# install requirements
-pipenv install
-
-# start postgres and create database with docker-compose.yaml
-docker-compose up
-
-# run the flask run.py
-flask --app run run
 ```
 
-Start the app using Docker:
+> Start the app in Docker
 
 ```bash
-# get the code
-git clone https://github.com/chkvdm/crypto-sandbox-api.git
-cd crypto-sandbox-api
-
-# start the app in Docker
-in process
+docker-compose up --build
 ```
 
 ## Testing
 
 The project includes a complete postman collection of HTTP requests to all API endpoints. You can imported collection [from](./postman).  
 
-<img width="900" alt="postman-screenshoot" src="https://user-images.githubusercontent.com/107465582/210433192-823e0391-8956-4af1-8b70-8d3b53b302a5.png">
+<img width="800" alt="ScreenShot" src="https://user-images.githubusercontent.com/107465582/211280790-edb1570b-a93b-4eaf-bada-b77c55838134.png">
 
 ## Authors
 

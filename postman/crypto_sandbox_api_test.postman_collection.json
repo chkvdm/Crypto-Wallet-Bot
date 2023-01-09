@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"nina\",\n    \"tg_user_id\": 222600364\n}",
+							"raw": "{\n    \"name\": \"riley\",\n    \"tg_user_id\": 222600364\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -61,7 +61,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"nina91\",\n    \"tg_user_id\": 222600364\n}",
+							"raw": "{\n    \"name\": \"riley91\",\n    \"tg_user_id\": 222600364\n}",
 							"options": {
 								"raw": {
 									"language": "json"

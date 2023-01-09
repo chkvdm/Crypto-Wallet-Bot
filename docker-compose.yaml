@@ -9,17 +9,42 @@ services:
       POSTGRES_DB: CryptoBotDB
     ports:
       - 5433:5432
+    networks:
+      - crypto-sandbox-api
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+    networks:
+      - crypto-sandbox-api
 
   flyway:
     image: flyway/flyway
-    command: -url=jdbc:postgresql://db:5432/CryptoBotDB -baselineOnMigrate="true" -user=postgres -password=example -connectRetries=60 migrate
+    command: |
+            -url=jdbc:postgresql://db:5432/CryptoBotDB 
+            -baselineOnMigrate="true" -user=postgres 
+            -password=example 
+            -connectRetries=60 migrate
     volumes:
       - ./migrations:/flyway/sql
     depends_on:
       - db
+    networks:
+      - crypto-sandbox-api
+
+  app:
+    build: .
+    restart: always
+    ports:
+      - 5001:5000
+    depends_on:
+      flyway:
+        condition: service_completed_successfully
+    networks:
+      - crypto-sandbox-api
+
+networks:
+  crypto-sandbox-api:
+    driver: bridge
