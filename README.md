@@ -33,7 +33,7 @@ docker-compose up --build
 
 The project includes a complete postman collection of HTTP requests to all API endpoints. You can imported collection [from](./postman).  
 
-<img width="900" alt="postman-screenshoot" src="https://user-images.githubusercontent.com/107465582/210433192-823e0391-8956-4af1-8b70-8d3b53b302a5.png">
+<img width="800" alt="ScreenShot" src="https://user-images.githubusercontent.com/107465582/211280790-edb1570b-a93b-4eaf-bada-b77c55838134.png">
 
 ## Authors
 
