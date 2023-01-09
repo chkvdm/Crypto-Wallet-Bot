@@ -1,7 +1,9 @@
 # Crypto Sandbox API
 
-Backend code for telegram bot 'crypto-sandbox-api'. Allows the user to simulate a crypto wallet with a start balance.  
-Based on real exchange rates, buy and sell cryptocurrencies. View your activity data and monitor your balance.
+Back-end part for 'crypto-sandbox-api' app. Is a sandbox-app that allows a simulation of a crypto wallet using a telegram bot. After registration for the user balance, the amount of 10.000 USDT will be credited. The user can see the price of cryptocurrencies, check his balance, buy and sell currencies and also view the list of completed transactions. The six most popular cryptocurrencies are supported.
+The back-end part has an API interface and is written in the Python programming language using the Flask microframework. The PostgreSQL database is used to store user data. Database migration is done using Flyway.
+Telegram bot will be used as a front-end part.
+API testing executes using Postman's collection of HTTP requests.
 
 ## Technologies used
 
